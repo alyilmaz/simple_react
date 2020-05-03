@@ -13,18 +13,18 @@ class App extends Component {
 
   addPerson = (person)=>{
     person.id = Math.random();
-    let people = [...this.state.people, person];
+    let personData = [...this.state.people, person];
     this.setState({
-      people : people
+      people : personData
     })
   }
 
   deletePerson = (id) =>{
-    let people = this.state.people.filter(person =>{
+    let dataPerson = this.state.people.filter(person =>{
       return person.id !== id
     });
     this.setState({
-      people:people
+      people:dataPerson
     })
   }
   
@@ -39,8 +39,7 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <h1>My first</h1>
-        <p>its </p>
+        <h1>React Project</h1>
         <Person deletePerson={this.deletePerson} people={this.state.people}/>
         <AddPerson  addPerson={this.addPerson}/>
       </div>

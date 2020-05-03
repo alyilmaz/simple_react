@@ -1,5 +1,6 @@
 import React from 'react';
 import './Person.css'
+import { Form, Button, ListGroup, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
 const Person = ({people, deletePerson}) =>{   
     //console.log(this.props)
@@ -9,16 +10,20 @@ const Person = ({people, deletePerson}) =>{
                 <div>Name: {person.name}</div>
                 <div>LastName: {person.lastName}</div>
                 <div>Age: {person.age}</div>
-                <button onClick={()=>{deletePerson(person.id)}}>
-                    Delete Person
-                </button>
+                <Button variant="primary" type="submit" onClick={()=>{deletePerson(person.id)}}>
+                    Delete
+                </Button>
             </div>
         )
     })
     return(
-        <div className="person-list">
-            {personList}
-        </div>
+        
+        <ListGroup>
+            <ListGroup.Item>
+                {personList}
+            </ListGroup.Item>           
+        </ListGroup>
+        
     )
 
 }
