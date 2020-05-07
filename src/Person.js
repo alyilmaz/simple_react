@@ -1,6 +1,6 @@
 import React from 'react';
 import './Person.css'
-import { Form, Button, ListGroup, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import {Button, ListGroup} from "react-bootstrap";
 
 const Person = ({people, deletePerson}) =>{   
     //console.log(this.props)

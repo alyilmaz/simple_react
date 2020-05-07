@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
 import Person from './Person';
 import AddPerson from './AddPerson';
+import Navbar from "./Navbar";
+import Home from './Home';
+import Contact from './Contact';
 
 class App extends Component {
   state = {
@@ -11,7 +15,7 @@ class App extends Component {
     ]
   }
 
-  addPerson = (person)=>{
+  addingPerson = (person)=>{
     person.id = Math.random();
     let personData = [...this.state.people, person];
     this.setState({
@@ -19,7 +23,7 @@ class App extends Component {
     })
   }
 
-  deletePerson = (id) =>{
+  deletingPerson = (id) =>{
     let dataPerson = this.state.people.filter(person =>{
       return person.id !== id
     });
@@ -39,9 +43,14 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <h1>React Project</h1>
-        <Person deletePerson={this.deletePerson} people={this.state.people}/>
-        <AddPerson  addPerson={this.addPerson}/>
+      <BrowserRouter>
+          <Navbar/>
+          <Route path='/home' component={Home}/>
+          <Route path='/contact' component={Contact}/>
+        </BrowserRouter>
+        <h2>React Project</h2>
+        <Person deletePerson={this.deletingPerson} people={this.state.people}/>
+        <AddPerson  addPerson={this.addingPerson}/>
       </div>
     );
   }
