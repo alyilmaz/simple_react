@@ -19,8 +19,8 @@ class AddPerson extends Component{
     }
     render(){
         return(
-            <div class="container">
-            <div class="form-row">
+            <div className="container">
+            <div className="form-row">
                 <form  onSubmit={this.handleSubmit}>                   
                     <Form.Control type="text" placeholder="Name" id="name" onChange={this.handleChange}/>
                     <Form.Control type="text" placeholder="Last-Name" id="lastName" onChange={this.handleChange}/>
